@@ -16,7 +16,33 @@ host.on('protect', function (data) {
 
 host.start(8000);*/
 
-let host = new TCP();
+async function Begin() {
 
-host.listen(8000);
+    try {
+
+        let file = await fs.readFileSync('serverConfi.json');
+
+        let config = JSON.parse(file);
+
+        if (!config.port) throw 'Missing PORT';
+
+        if (!config.host) throw 'Missing host';
+
+        let host = new TCP();
+
+        host.listen(8000);
+
+    } catch(e) {
+        throw "Begin ERROR : " + e;
+    }
+}
+
+
+try {
+
+    let start = Begin();
+
+} catch(e) {
+    console.log(e);
+}
 

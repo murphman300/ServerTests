@@ -7,7 +7,7 @@ module.exports = {
         production: {
             user: 'ubuntu',
             host: 'ec2-34-228-59-249.compute-1.amazonaws.com',
-            key: '~/.ssh/autorized_keys',
+            key: '~/.ssh/id_rsa',
             ref: 'origin/master',
             repo: 'git@github.com:murphman300/ServerTests.git',
             path: '/home/ubuntu/ServerTests',
